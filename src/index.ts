@@ -1,7 +1,10 @@
-import { Elysia } from "elysia";
+import Elysia from "elysia";
+import fileController from "./controller/FileController";
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
+const App: Elysia = new Elysia()
+    .use(fileController)
+    .listen(3000);
 
 console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
+  `Server is running at ${App.server?.hostname}:${App.server?.port}`
 );
